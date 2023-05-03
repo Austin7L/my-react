@@ -1,4 +1,4 @@
-import CssButtons from "../componets/playCss/cssButtons";
+import CssButtons from "../componets/playCss/CssButtons";
 
 const Css = () => {
   return (
