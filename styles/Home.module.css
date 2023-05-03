@@ -380,4 +380,23 @@
     rotate: 0deg;
   }
 }
+
+.loginForm {
+  border: 1px solid gray;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.loginInput {
+  height: 30px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.loginSubmitButton {
+  width: 100px;
+  height: 30px;
+  font-family: "_Inter_ccafe3 __Inter_Fallback_ccafe3";
+  font-size: 20px;
+}
 /*Mine(e)*/
