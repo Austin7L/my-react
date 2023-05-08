@@ -385,6 +385,7 @@
   border: 1px solid gray;
   padding: 10px;
   border-radius: 5px;
+  margin: auto;
 }
 
 .loginInput {
@@ -399,4 +400,77 @@
   font-family: "_Inter_ccafe3 __Inter_Fallback_ccafe3";
   font-size: 20px;
 }
+
+.dark {
+  background-color: #333;
+  color: #fff;
+}
+.light {
+  background-color: #fff;
+  color: #333;
+}
+
+.linkOuterDiv {
+  display: flex;
+  width: 100%;
+  background-color: lightgray;
+}
+
+.linksA {
+  margin: 1rem auto 1rem auto;
+}
+
+.linksA:hover {
+  opacity: 0.5; /* 透明度 */
+}
+
+.headerIcons {
+  background-repeat: no-repeat;
+  height: 16px;
+  width: 16px;
+}
+
+.homeOuterDiv {
+  height: 1000px;
+}
+
+.headerDiv {
+  height: 100px;
+  font-family: "_Inter_ccafe3 __Inter_Fallback_ccafe3";
+  font-size: 20px;
+}
+
+.bodyOuterDiv {
+  /* margin: 1rem; */
+  text-align: center;
+  background-color: lightgray;
+  font-family: "_Inter_ccafe3 __Inter_Fallback_ccafe3";
+  font-size: 20px;
+  height: 800px;
+}
+
+.footerOuterDiv {
+  font-family: "_Inter_ccafe3 __Inter_Fallback_ccafe3";
+  font-size: 20px;
+  text-align: center;
+  background-color: rgb(217, 221, 222);
+  height: 100px;
+}
+
+.unitConverBodyDiv {
+  text-align: left;
+  border: 2px dotted black;
+  width: auto;
+  height: 300px;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.broom {
+  background-image: url("../public/icons/broom.png");
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 16px;
+}
+
 /*Mine(e)*/

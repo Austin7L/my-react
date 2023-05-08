@@ -105,38 +105,3 @@ a {
     color-scheme: dark;
   }
 }
-
-/* Mine(s) */
-
-@font-face {
-  font-family: custom-sans-serif;
-  src: local("Heiti TC"), local("微軟正黑體"), local("Microsoft JhengHei");
-  unicode-range: U+4E00-9FFF;
-}
-
-@font-face {
-  font-family: custom-sans-serif;
-  src: local("Courier New");
-  unicode-range: U+00-024F;
-}
-
-.custom-sans-serif {
-  font-family: custom-sans-serif;
-}
-
-label {
-  font-family: "custom-sans-serif";
-}
-
-div {
-  font-family: "custom-sans-serif";
-}
-
-form input {
-  border-radius: 5px;
-  background-color: none;
-  margin-right: 1rem;
-  height: 25px;
-}
-
-/* Mine(e) */

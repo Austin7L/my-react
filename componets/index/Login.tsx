@@ -1,5 +1,5 @@
 import styles from "@/styles/Home.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Login = () => {
   const [id, setId] = useState("");
@@ -12,18 +12,16 @@ const Login = () => {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     let flag = false;
-    console.log("flag1:" + flag);
-    e.preventDefault(); //避免submit重新跳轉
+    e.preventDefault(); // 避免submit重新跳轉
     for (const value of accounts) {
       if (value.id === id && value.pwd === pwd) {
         flag = true;
       }
       if (flag) break;
     }
-    console.log("flag3:" + flag);
     if (flag) {
       alert("登入成功!");
-      window.location.href = "/css";
+      window.location.href = "/home";
     } else {
       alert("登入失敗!");
     }

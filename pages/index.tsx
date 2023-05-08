@@ -2,15 +2,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '../styles/Home.module.css'
-import Login from '@/componets/login/Login'
+import Login from '../componets/index/Login'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  // let links = [
-  //   { "label": "CSS", "pageName": "css" }
-  // ];
-
   return (
     <>
       <Head>
@@ -18,11 +14,6 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <Login />
-        {/* {links.map((link, index) => {
-          return (
-            <a key={index} href={"/" + link.pageName}>{link.label}</a>
-          )
-        })} */}
       </main>
     </>
   )

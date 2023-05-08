@@ -3,7 +3,7 @@ import styles from "../../styles/Home.module.css";
 const CssButtons = () => {
   return (
     <>
-      <div style={{ height: "900px", display: "flex" }}>
+      <div style={{ height: "1000px", display: "flex", margin: "auto" }}>
         <div className={styles.buttonDiv1} >
           <button className={styles.button1} />
         </div>
