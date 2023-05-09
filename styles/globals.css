@@ -132,6 +132,10 @@ div {
   font-family: "custom-sans-serif";
 }
 
+input {
+  font-family: "custom-sans-serif";
+}
+
 form input {
   border-radius: 5px;
   background-color: none;

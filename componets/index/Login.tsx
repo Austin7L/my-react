@@ -11,6 +11,7 @@ const Login = () => {
   ];
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // const handleClick = (e: any) => {
     let flag = false;
     e.preventDefault(); // 避免submit重新跳轉
     for (const value of accounts) {
@@ -44,7 +45,10 @@ const Login = () => {
         <label>Password: </label>
         <input type="password" className={styles.loginInput} onChange={handlePwd}></input>
         <br />
-        <button type="submit" className={styles.loginSubmitButton} onClick={handleClick}>submit</button>
+        {/* <input type="submit" value="submit" style={{ width: "100px", height: "30px", fontSize: "16px" }} onClick={handleClick}></input> */}
+        <button type="submit" className={styles.loginSubmitButton} onClick={handleClick} >
+          <div>submit</div>
+        </button>
       </form>
     </>
   )
