@@ -150,6 +150,12 @@ form input {
   form label {
     display: block;
   }
+
+  label,
+  input,
+  label {
+    font-size: 18px;
+  }
 }
 
 /* Mine(e) */
