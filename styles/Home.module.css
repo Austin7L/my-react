@@ -238,6 +238,7 @@
   height: 50px;
   background-color: rgb(111, 109, 215);
   border-radius: 10px;
+  border: none;
   display: flex;
 }
 
@@ -277,6 +278,7 @@
   height: 50px;
   border-radius: 100%;
   background-color: pink;
+  border: none;
   display: flex;
 }
 
@@ -314,7 +316,6 @@
   height: 0;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
-  border-bottom: 30px solid rgb(25, 143, 94);
 }
 
 .button3:hover {
@@ -350,6 +351,7 @@
   width: 50px;
   height: 50px;
   background-color: aqua;
+  border: none;
 }
 
 .button4:hover {
@@ -413,6 +415,7 @@
   display: flex;
   width: 100%;
   background-color: lightgray;
+  border-bottom: 1px solid black;
 }
 
 .linksA {
@@ -431,28 +434,22 @@
 
 .homeOuterDiv {
   height: 1000px;
-}
-
-.headerDiv {
-  height: 100px;
-  font-family: "_Inter_ccafe3 __Inter_Fallback_ccafe3";
-  font-size: 20px;
+  display: block;
 }
 
 .bodyOuterDiv {
   /* margin: 1rem; */
   text-align: center;
   background-color: lightgray;
-  font-family: "_Inter_ccafe3 __Inter_Fallback_ccafe3";
-  font-size: 20px;
-  height: 800px;
+  height: 850px;
+  padding: 2rem;
 }
 
 .footerOuterDiv {
   font-family: "_Inter_ccafe3 __Inter_Fallback_ccafe3";
   font-size: 20px;
   text-align: center;
-  background-color: rgb(217, 221, 222);
+  background-color: lightgray;
   height: 100px;
 }
 
@@ -460,7 +457,7 @@
   text-align: left;
   border: 2px dotted black;
   width: auto;
-  height: 300px;
+  height: auto;
   padding: 1rem;
   margin: 1rem;
 }

@@ -126,14 +126,17 @@ a {
 
 label {
   font-family: "custom-sans-serif";
+  font-size: 25px;
 }
 
 div {
   font-family: "custom-sans-serif";
+  font-size: 25px;
 }
 
 input {
   font-family: "custom-sans-serif";
+  font-size: 25px;
 }
 
 form input {

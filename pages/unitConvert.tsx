@@ -10,11 +10,7 @@ const unitContert = () => {
       <div className={styles.homeOuterDiv}>
         <div className={styles.headerDiv}>
           <Headers />
-        </div>
-        <div >
           <UnitConvertBody pageName="unitConvert" />
-        </div>
-        <div>
           <Footer />
         </div>
       </div >

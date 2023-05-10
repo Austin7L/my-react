@@ -5,9 +5,15 @@ import Footer from "../componets/index/Footer";
 const Css = () => {
   return (
     <>
-      <Headers />
-      <CssButtons />
-      <Footer />
+      <div>
+        <Headers />
+      </div>
+      <div>
+        <CssButtons />
+      </div>
+      <div>
+        <Footer />
+      </div>
     </>
   )
 }

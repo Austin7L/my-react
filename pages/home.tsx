@@ -8,13 +8,13 @@ const Home = () => {
   return (
     <>
       <div className={styles.homeOuterDiv}>
-        <div className={styles.headerDiv}>
+        <div>
           <Headers />
         </div>
-        <div >
+        <div>
           <Body pageName="Home" />
         </div>
-        <div>
+        <div >
           <Footer />
         </div>
       </div>

@@ -49,22 +49,6 @@ const UnitConvertBody = (props: any) => {
     }
   }
 
-  const handleMilliMeter = (e: any) => {
-    setMMValue(e.target.value)
-  };
-
-  const handleCenterMeter = (e: any) => {
-    setCMValue(e.target.value)
-  };
-
-  const handleMeter = (e: any) => {
-    setMValue(e.target.value)
-  };
-
-  const handleKiloMeter = (e: any) => {
-    setKMValue(e.target.value)
-  };
-
   const handleLengthBroomClick = () => {
     console.log("current broom type: " + unitType);
     if (unitType === "length") {
