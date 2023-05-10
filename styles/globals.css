@@ -143,4 +143,10 @@ form input {
   height: 25px;
 }
 
+@media only screen and (max-width: 510px) {
+  form label {
+    display: block;
+  }
+}
+
 /* Mine(e) */

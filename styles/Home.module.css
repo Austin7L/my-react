@@ -466,10 +466,14 @@
 }
 
 .broom {
-  background-image: url("../public/icons/broom.png");
+  background-image: url("../public/icons/broom_24px.png");
   background-repeat: no-repeat;
-  width: 100px;
-  height: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
 }
 
+.broom:hover {
+  opacity: 50%;
+}
 /*Mine(e)*/

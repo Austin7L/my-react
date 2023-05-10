@@ -29,29 +29,44 @@ const UnitConvertBody = (props: any) => {
     setFoucusElement("km");
   };
 
+  const handleBroomClick = () => {
+    setMMValue("");
+    setCMValue("");
+    setMValue("");
+    setKMValue("");
+  }
+
 
   useEffect(() => {
     console.log("outEffect focusElement: " + focusElement)
     switch (focusElement) {
       case "mm":
-        setCMValue((parseFloat(mmValue) / 10).toString());
-        setMValue((parseFloat(mmValue) / 1000).toString());
-        setKMValue((parseFloat(mmValue) / 1000000).toString());
+        if (!isNaN(parseFloat(mmValue))) {
+          setCMValue((parseFloat(mmValue) / 10).toString());
+          setMValue((parseFloat(mmValue) / 1000).toString());
+          setKMValue((parseFloat(mmValue) / 1000000).toString());
+        }
         break;
       case "cm":
-        setMMValue((parseFloat(cmValue) * 10).toString());
-        setMValue((parseFloat(cmValue) / 100).toString());
-        setKMValue((parseFloat(cmValue) / 1000).toString());
+        if (!isNaN(parseFloat(cmValue))) {
+          setMMValue((parseFloat(cmValue) * 10).toString());
+          setMValue((parseFloat(cmValue) / 100).toString());
+          setKMValue((parseFloat(cmValue) / 1000).toString());
+        }
         break;
       case "m":
-        setMMValue((parseFloat(mValue) * 1000).toString());
-        setCMValue((parseFloat(mValue) * 100).toString());
-        setKMValue((parseFloat(mValue) / 1000).toString());
+        if (!isNaN(parseFloat(mValue))) {
+          setMMValue((parseFloat(mValue) * 1000).toString());
+          setCMValue((parseFloat(mValue) * 100).toString());
+          setKMValue((parseFloat(mValue) / 1000).toString());
+        }
         break;
       case "km":
-        setMMValue((parseFloat(kmValue) * 1000000).toString());
-        setCMValue((parseFloat(kmValue) * 100000).toString());
-        setMValue((parseFloat(kmValue) * 1000).toString());
+        if (!isNaN(parseFloat(kmValue))) {
+          setMMValue((parseFloat(kmValue) * 1000000).toString());
+          setCMValue((parseFloat(kmValue) * 100000).toString());
+          setMValue((parseFloat(kmValue) * 1000).toString());
+        }
         break;
       default:
         break;
@@ -96,24 +111,27 @@ const UnitConvertBody = (props: any) => {
         </div>
         <div className={styles.unitConverBodyDiv}>
           <form>
-            <label>長度&距離換算</label>
+            <label>長度/距離換算</label>
             <br />
-            <label>毫米:
-              <input id="mm" type="text" value={mmValue} onChange={handleMilliMeter} onClick={() => { return (setFoucusElement("mm"), handleMilliMeter) }} />
+            <label >毫米:
+              <input id="mm" type="text" value={mmValue} onChange={handleMilliMeter}
+                onClick={() => { return (setFoucusElement("mm"), handleMilliMeter) }} />
             </label>
             <label>公分:
-              <input id="cm" type="text" value={cmValue} onChange={handleCenterMeter} onClick={() => { return (setFoucusElement("cm"), handleCenterMeter) }} />
+              <input id="cm" type="text" value={cmValue} onChange={handleCenterMeter}
+                onClick={() => { return (setFoucusElement("cm"), handleCenterMeter) }} />
             </label>
             <label>公尺:
-              <input id="m" type="text" value={mValue} onChange={handleMeter} onClick={() => { return (setFoucusElement("m"), handleMeter) }} />
+              <input id="m" type="text" value={mValue} onChange={handleMeter}
+                onClick={() => { return (setFoucusElement("m"), handleMeter) }} />
             </label>
             <label>公里:
-              <input id="km" type="text" value={kmValue} onChange={handleKiloMeter} onClick={() => { return (setFoucusElement("km"), handleKiloMeter) }} />
+              <input id="km" type="text" value={kmValue} onChange={handleKiloMeter}
+                onClick={() => { return (setFoucusElement("km"), handleKiloMeter) }} />
             </label>
             <br />
-            <button type="submit"></button>
           </form>
-          <a className={styles.broom} />
+          <img className={styles.broom} onClick={handleBroomClick} />
         </div>
       </div>
     </>
