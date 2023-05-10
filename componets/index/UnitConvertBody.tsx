@@ -209,7 +209,7 @@ const UnitConvertBody = (props: any) => {
               <input type="text" value={kgValue} onChange={handleInput}
                 onClick={() => { setFoucusElement("kg") }} />
             </label>
-            <label>公頓:
+            <label>公噸:
               <input type="text" value={kValue} onChange={handleInput}
                 onClick={() => { setFoucusElement("k") }} />
             </label>
