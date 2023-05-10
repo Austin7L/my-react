@@ -153,7 +153,7 @@ form input {
 
   label,
   input,
-  label {
+  div {
     font-size: 18px;
   }
 }
