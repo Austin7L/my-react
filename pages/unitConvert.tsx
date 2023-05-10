@@ -9,9 +9,15 @@ const unitContert = () => {
     <>
       <div className={styles.homeOuterDiv}>
         <div className={styles.headerDiv}>
-          <Headers />
-          <UnitConvertBody pageName="unitConvert" />
-          <Footer />
+          <div>
+            <Headers />
+          </div>
+          <div>
+            <UnitConvertBody pageName="unitConvert" />
+          </div>
+          <div>
+            <Footer />
+          </div>
         </div>
       </div >
     </>
