@@ -314,8 +314,10 @@
 .button3 {
   width: 0;
   height: 0;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
+  border-left: 30px solid rgb(211, 211, 211);
+  border-right: 30px solid rgb(211, 211, 211);
+  border-top: 1px solid rgb(211, 211, 211);
+  border-bottom: 30px solid rgb(25, 143, 94);
 }
 
 .button3:hover {
