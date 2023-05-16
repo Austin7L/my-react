@@ -147,6 +147,10 @@ form input {
   height: 25px;
 }
 
+img:hover {
+  opacity: 50%;
+}
+
 @media only screen and (max-width: 510px) {
   form label {
     display: block;

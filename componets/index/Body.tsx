@@ -5,8 +5,10 @@ const Body = (props: any) => {
   return (
     <>
       <div className={styles.bodyOuterDiv}>
-        <div >
-          It's Austin7L {props.pageName} Page
+        <div className={styles.bodyInnerDiv}>
+          <div >
+            It's Austin7L {props.pageName} Page
+          </div>
         </div>
       </div>
     </>

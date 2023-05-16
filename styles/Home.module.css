@@ -440,11 +440,15 @@
 }
 
 .bodyOuterDiv {
-  /* margin: 1rem; */
-  text-align: center;
+  margin: auto;
   background-color: lightgray;
   height: 850px;
   padding: 2rem;
+}
+
+.bodyInnerDiv {
+  width: 40%;
+  margin: auto;
 }
 
 .footerOuterDiv {
@@ -477,4 +481,39 @@
 .broom:hover {
   opacity: 50%;
 }
+
+.todoListDiv {
+  width: 100px;
+  /* margin: auto; */
+  text-align: left;
+}
+
+.todoListOuterLi {
+  width: 530px;
+  border: 1px solid lightslategray;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.todoListItems {
+  width: 85%;
+}
+
+.todoListItemsWithIsDone {
+  width: 85%;
+  text-decoration-line: line-through; /* 刪除線 */
+}
+
+.todoListImgDiv {
+  width: 80;
+}
+
+.todoListImg {
+  width: 32px;
+  height: 32px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
 /*Mine(e)*/
