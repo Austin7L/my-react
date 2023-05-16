@@ -572,6 +572,13 @@
     margin: auto;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .bodyInnerDiv {
+    width: 95%;
+    margin: auto;
+  }
+}
 /* todo List Css(e) */
 
 /*Mine(e)*/
