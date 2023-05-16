@@ -46,9 +46,11 @@ const TodoList = (props: any) => {
           <div >
             <div style={{ marginTop: "20px" }}>
               <form>
-                待辦事項:
-                <input type="text" onChange={(e) => { setItem(e.target.value) }} style={{ width: "350px", backgroundColor: "transparent" }} />
-                <input type="submit" onClick={handleSubmit} style={{ width: "70px", height: "32px", textAlign: "center" }} />
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  待辦事項:
+                  <input type="text" onChange={(e) => { setItem(e.target.value) }} className={styles.todoListInput} />
+                  <input type="submit" onClick={handleSubmit} className={styles.todoListSubmit} />
+                </div>
               </form>
             </div>
             <div className={styles.todoListDiv} style={{ marginTop: "20px" }}>

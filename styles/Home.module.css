@@ -482,9 +482,9 @@
   opacity: 50%;
 }
 
+/* todo List Css(s) */
 .todoListDiv {
   width: 100px;
-  /* margin: auto; */
   text-align: left;
 }
 
@@ -515,5 +515,63 @@
   margin-left: 5px;
   margin-top: 5px;
 }
+
+.todoListInput {
+  width: 350px;
+}
+
+.todoListSubmit {
+  width: 70px;
+  height: 32px;
+  text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+  .todoListOuterLi {
+    width: 300px;
+    border: 1px solid lightslategray;
+    margin: px;
+    display: flex;
+    align-items: center;
+  }
+
+  .todoListItems {
+    width: 70%;
+  }
+
+  .todoListItemsWithIsDone {
+    width: 70%;
+    text-decoration-line: line-through; /* 刪除線 */
+  }
+
+  .todoListImgDiv {
+    width: 80;
+  }
+
+  .todoListImg {
+    width: 32px;
+    height: 32px;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+
+  .todoListInput {
+    width: 80%;
+  }
+
+  .todoListSubmit {
+    width: 30%;
+    height: 30px;
+    font-size: 10;
+    margin-top: 5px;
+    text-align: left;
+  }
+
+  .bodyInnerDiv {
+    width: 70%;
+    margin: auto;
+  }
+}
+/* todo List Css(e) */
 
 /*Mine(e)*/
