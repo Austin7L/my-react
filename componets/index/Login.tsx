@@ -7,11 +7,9 @@ const Login = () => {
 
   let accounts = [
     { "id": "austin", "pwd": "0000" },
-    { "id": "dihan", "pwd": "1234" }
   ];
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    // const handleClick = (e: any) => {
     let flag = false;
     e.preventDefault(); // 避免submit重新跳轉
     for (const value of accounts) {

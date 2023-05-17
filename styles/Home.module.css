@@ -484,16 +484,20 @@
 
 /* todo List Css(s) */
 .todoListDiv {
-  width: 100px;
+  width: 600px;
+  height: 720px;
   text-align: left;
+  overflow: auto;
 }
 
 .todoListOuterLi {
   width: 530px;
+  /* height: 100%; */
   border: 1px solid lightslategray;
   margin: 5px;
   display: flex;
   align-items: center;
+  word-wrap: break-word;
 }
 
 .todoListItems {
@@ -516,8 +520,16 @@
   margin-top: 5px;
 }
 
+.todoListImg:hover {
+  outline: none !important;
+  color: white;
+}
+
 .todoListInput {
   width: 350px;
+  height: 15pt;
+  font-size: 15pt;
+  white-space: pre-line;
 }
 
 .todoListSubmit {
@@ -579,6 +591,7 @@
     margin: auto;
   }
 }
+
 /* todo List Css(e) */
 
 /*Mine(e)*/
