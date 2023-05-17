@@ -1,12 +1,15 @@
 {
   "name": "my-react",
   "version": "0.1.0",
+  "homepage": "https://austin7l.github.io/my-app",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@types/node": "18.16.3",
