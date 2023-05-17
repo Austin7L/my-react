@@ -539,6 +539,10 @@
 }
 
 @media screen and (max-width: 700px) {
+  .todoListDiv {
+    height: 700px;
+  }
+
   .todoListOuterLi {
     width: 300px;
     border: 1px solid lightslategray;
