@@ -37,7 +37,7 @@ const Login = () => {
   return (
     <>
       <form className={styles.loginForm}>
-        <label>Account: </label>
+        <label>Account : </label>
         <input type="text" className={styles.loginInput} onChange={handleId}></input>
         <br />
         <label>Password: </label>
