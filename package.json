@@ -1,7 +1,7 @@
 {
   "name": "my-react",
   "version": "0.1.0",
-  "homepage": "https://austin7l.github.io/my-app",
+  "homepage": "https://austin7l.github.io/my-react",
   "private": true,
   "scripts": {
     "dev": "next dev",
