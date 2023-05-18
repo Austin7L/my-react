@@ -471,10 +471,9 @@
 }
 
 .broom {
-  background-image: url("../public/icons/broom_24px.png");
   background-repeat: no-repeat;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   border-radius: 5px;
 }
 
@@ -492,7 +491,6 @@
 
 .todoListOuterLi {
   width: 530px;
-  /* height: 100%; */
   border: 1px solid lightslategray;
   margin: 5px;
   display: flex;

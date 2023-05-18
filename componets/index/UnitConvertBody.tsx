@@ -1,3 +1,4 @@
+import { isNumber } from "util";
 import styles from "../../styles/Home.module.css";
 import { useState, useEffect, useCallback } from "react";
 
@@ -14,11 +15,11 @@ const UnitConvertBody = (props: any) => {
   const [kValue, setKValue] = useState("");
   const [tkgValue, setTKGValue] = useState("");
 
-  const [unitType, setUnitType] = useState("");
   const [focusElement, setFoucusElement] = useState("");
 
 
   const handleInput = (e: any) => {
+    console.log(e.target.value);
     switch (focusElement) {
       case "mm":
         setMMValue(e.target.value)
@@ -49,102 +50,127 @@ const UnitConvertBody = (props: any) => {
     }
   }
 
-  const handleLengthBroomClick = () => {
-    console.log("current broom type: " + unitType);
-    if (unitType === "length") {
-      setMMValue("");
-      setCMValue("");
-      setMValue("");
-      setKMValue("");
-    } else if (unitType === "weight") {
-      setGValue("");
-      setKGValue("");
-      setKValue("");
-      setTKGValue("");
+  const handleLengthBroomClick = (type: string) => {
+    switch (type) {
+      case "length":
+        setMMValue("");
+        setCMValue("");
+        setMValue("");
+        setKMValue("");
+        break;
+      case "weight":
+        setGValue("");
+        setKGValue("");
+        setKValue("");
+        setTKGValue("");
+        break;
+      default:
+        break;
     }
   }
 
   useEffect(() => {
-    console.log("outEffect focusElement: " + focusElement)
-    console.log("outEffect unitType: " + unitType)
-    if (unitType === "length") {
-      switch (focusElement) {
-        case "mm":
+    switch (focusElement) {
+      case "mm":
+        if (isNaN((Number(mmValue)))) {
+          setMMValue(mmValue.substring(0, mmValue.length - 1));
+        } else {
           if (!isNaN(parseFloat(mmValue))) {
             setCMValue((parseFloat(mmValue) / 10).toString());
             setMValue((parseFloat(mmValue) / 1000).toString());
             setKMValue((parseFloat(mmValue) / 1000000).toString());
           }
-          break;
-        case "cm":
+        }
+        break;
+      case "cm":
+        if (isNaN((Number(cmValue)))) {
+          setCMValue(cmValue.substring(0, cmValue.length - 1));
+        } else {
           if (!isNaN(parseFloat(cmValue))) {
             setMMValue((parseFloat(cmValue) * 10).toString());
             setMValue((parseFloat(cmValue) / 100).toString());
             setKMValue((parseFloat(cmValue) / 1000).toString());
           }
-          break;
-        case "m":
+        }
+        break;
+      case "m":
+        if (isNaN((Number(mValue)))) {
+          setMValue(mValue.substring(0, mValue.length - 1));
+        } else {
           if (!isNaN(parseFloat(mValue))) {
             setMMValue((parseFloat(mValue) * 1000).toString());
             setCMValue((parseFloat(mValue) * 100).toString());
             setKMValue((parseFloat(mValue) / 1000).toString());
           }
-          break;
-        case "km":
+        }
+        break;
+      case "km":
+        if (isNaN((Number(kmValue)))) {
+          setKMValue(kmValue.substring(0, kmValue.length - 1));
+        } else {
           if (!isNaN(parseFloat(kmValue))) {
             setMMValue((parseFloat(kmValue) * 1000000).toString());
             setCMValue((parseFloat(kmValue) * 100000).toString());
             setMValue((parseFloat(kmValue) * 1000).toString());
           }
-          break;
-        default:
-          break;
-      }
-    } else if (unitType === "weight") {
-      switch (focusElement) {
-        case "g":
+        }
+        break;
+      case "g":
+        if (isNaN((Number(gValue)))) {
+          setGValue(gValue.substring(0, gValue.length - 1));
+        } else {
           if (!isNaN(parseFloat(gValue))) {
             setKGValue((parseFloat(gValue) / 1000).toString());
             setKValue((parseFloat(gValue) / 100000).toString());
             setTKGValue((parseFloat(gValue) / 600).toString());
           }
-          break;
-        case "kg":
+        }
+        break;
+      case "kg":
+        if (isNaN((Number(kgValue)))) {
+          setKGValue(kgValue.substring(0, kgValue.length - 1));
+        } else {
           if (!isNaN(parseFloat(kgValue))) {
             setGValue((parseFloat(kgValue) * 1000).toString());
             setKValue((parseFloat(kgValue) / 1000).toString());
             setTKGValue((parseFloat(kgValue) / 600000).toString());
           }
-          break;
-        case "k":
+        }
+        break;
+      case "k":
+        if (isNaN((Number(kValue)))) {
+          setKValue(kValue.substring(0, kValue.length - 1));
+        } else {
           if (!isNaN(parseFloat(kValue))) {
             setGValue((parseFloat(kValue) * 1000000).toString());
             setKGValue((parseFloat(kValue) * 1000).toString());
             setTKGValue((parseFloat(kValue) / 600000000).toString());
           }
-          break;
-        case "tkg":
+        }
+        break;
+      case "tkg":
+        if (isNaN((Number(tkgValue)))) {
+          setTKGValue(tkgValue.substring(0, tkgValue.length - 1));
+        } else {
           if (!isNaN(parseFloat(tkgValue))) {
             setGValue((parseFloat(tkgValue) * 600).toString());
             setKValue((parseFloat(tkgValue) * 600000).toString());
             setKGValue((parseFloat(tkgValue) * 6000000000).toString());
           }
-          break;
-        default:
-          break;
-      }
+        }
+        break;
+      default:
+        break;
     }
   })
 
   useEffect(() => {
     const keyDownHandler = (event: any) => {
-
       if (event.key === "Enter") {
         handleSubmit(event);
       }
     }
     document.addEventListener('keydown', keyDownHandler);
-
     return () => {
       document.removeEventListener('keydown', keyDownHandler);
     };
@@ -153,17 +179,6 @@ const UnitConvertBody = (props: any) => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault(); // 避免submit重新跳轉
-    // switch (focusElement) {
-    //   case "mm":
-    //     console.log("inside return mmValue:" + mmValue);
-    //     console.log("parseFloat" + parseFloat(mmValue) / 100);
-    //     setCMValue((parseFloat(mmValue) / 100).toString());
-    //     break;
-
-    //   default:
-    //     break;
-    // }
-
   };
 
   return (
@@ -174,7 +189,7 @@ const UnitConvertBody = (props: any) => {
             It's Austin7L {props.pageName} Page
           </div>
         </div>
-        <div className={styles.unitConverBodyDiv} onClick={() => { setUnitType("length") }}>
+        <div className={styles.unitConverBodyDiv} >
           <form >
             <label>長度/距離換算</label>
             <br />
@@ -196,10 +211,10 @@ const UnitConvertBody = (props: any) => {
             </label>
             <br />
           </form>
-          <img className={styles.broom} onClick={() => { setUnitType("length"), handleLengthBroomClick() }} />
+          <img src="/icons/broom_24px.png" className={styles.broom} onClick={() => { handleLengthBroomClick("length") }} />
         </div>
         <br />
-        <div className={styles.unitConverBodyDiv} onClick={() => { setUnitType("weight") }}>
+        <div className={styles.unitConverBodyDiv} >
           <form >
             <label>重量換算</label>
             <br />
@@ -221,7 +236,7 @@ const UnitConvertBody = (props: any) => {
             </label>
             <br />
           </form>
-          <img className={styles.broom} onClick={() => { setUnitType("weight"), handleLengthBroomClick() }} />
+          <img src="/icons/broom_24px.png" className={styles.broom} onClick={() => { handleLengthBroomClick("weight") }} />
         </div>
       </div>
     </>
