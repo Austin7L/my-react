@@ -70,99 +70,132 @@ const UnitConvertBody = (props: any) => {
   }
 
   useEffect(() => {
-    switch (focusElement) {
-      case "mm":
-        if (isNaN((Number(mmValue)))) {
-          setMMValue(mmValue.substring(0, mmValue.length - 1));
-        } else {
-          if (!isNaN(parseFloat(mmValue))) {
-            setCMValue((parseFloat(mmValue) / 10).toString());
-            setMValue((parseFloat(mmValue) / 1000).toString());
-            setKMValue((parseFloat(mmValue) / 1000000).toString());
-          }
+    if (focusElement === 'mm') {
+      if (isNaN((Number(mmValue)))) {
+        setMMValue(mmValue.substring(0, mmValue.length - 1));
+      } else {
+        if (!isNaN(parseFloat(mmValue))) {
+          setCMValue((parseFloat(mmValue) / 10).toString());
+          setMValue((parseFloat(mmValue) / 1000).toString());
+          setKMValue((parseFloat(mmValue) / 1000000).toString());
         }
-        break;
-      case "cm":
-        if (isNaN((Number(cmValue)))) {
-          setCMValue(cmValue.substring(0, cmValue.length - 1));
-        } else {
-          if (!isNaN(parseFloat(cmValue))) {
-            setMMValue((parseFloat(cmValue) * 10).toString());
-            setMValue((parseFloat(cmValue) / 100).toString());
-            setKMValue((parseFloat(cmValue) / 1000).toString());
-          }
-        }
-        break;
-      case "m":
-        if (isNaN((Number(mValue)))) {
-          setMValue(mValue.substring(0, mValue.length - 1));
-        } else {
-          if (!isNaN(parseFloat(mValue))) {
-            setMMValue((parseFloat(mValue) * 1000).toString());
-            setCMValue((parseFloat(mValue) * 100).toString());
-            setKMValue((parseFloat(mValue) / 1000).toString());
-          }
-        }
-        break;
-      case "km":
-        if (isNaN((Number(kmValue)))) {
-          setKMValue(kmValue.substring(0, kmValue.length - 1));
-        } else {
-          if (!isNaN(parseFloat(kmValue))) {
-            setMMValue((parseFloat(kmValue) * 1000000).toString());
-            setCMValue((parseFloat(kmValue) * 100000).toString());
-            setMValue((parseFloat(kmValue) * 1000).toString());
-          }
-        }
-        break;
-      case "g":
-        if (isNaN((Number(gValue)))) {
-          setGValue(gValue.substring(0, gValue.length - 1));
-        } else {
-          if (!isNaN(parseFloat(gValue))) {
-            setKGValue((parseFloat(gValue) / 1000).toString());
-            setKValue((parseFloat(gValue) / 100000).toString());
-            setTKGValue((parseFloat(gValue) / 600).toString());
-          }
-        }
-        break;
-      case "kg":
-        if (isNaN((Number(kgValue)))) {
-          setKGValue(kgValue.substring(0, kgValue.length - 1));
-        } else {
-          if (!isNaN(parseFloat(kgValue))) {
-            setGValue((parseFloat(kgValue) * 1000).toString());
-            setKValue((parseFloat(kgValue) / 1000).toString());
-            setTKGValue((parseFloat(kgValue) / 600000).toString());
-          }
-        }
-        break;
-      case "k":
-        if (isNaN((Number(kValue)))) {
-          setKValue(kValue.substring(0, kValue.length - 1));
-        } else {
-          if (!isNaN(parseFloat(kValue))) {
-            setGValue((parseFloat(kValue) * 1000000).toString());
-            setKGValue((parseFloat(kValue) * 1000).toString());
-            setTKGValue((parseFloat(kValue) / 600000000).toString());
-          }
-        }
-        break;
-      case "tkg":
-        if (isNaN((Number(tkgValue)))) {
-          setTKGValue(tkgValue.substring(0, tkgValue.length - 1));
-        } else {
-          if (!isNaN(parseFloat(tkgValue))) {
-            setGValue((parseFloat(tkgValue) * 600).toString());
-            setKValue((parseFloat(tkgValue) * 600000).toString());
-            setKGValue((parseFloat(tkgValue) * 6000000000).toString());
-          }
-        }
-        break;
-      default:
-        break;
+      }
     }
-  })
+  }, [mmValue]);
+
+  useEffect(() => {
+    if (focusElement === 'cm') {
+      if (isNaN((Number(cmValue)))) {
+        setCMValue(cmValue.substring(0, cmValue.length - 1));
+      } else {
+        if (!isNaN(parseFloat(cmValue))) {
+          setMMValue((parseFloat(cmValue) * 10).toString());
+          setMValue((parseFloat(cmValue) / 100).toString());
+          setKMValue((parseFloat(cmValue) / 1000).toString());
+        }
+      }
+    }
+  }, [cmValue]);
+
+  useEffect(() => {
+    if (focusElement === 'cm') {
+      if (isNaN((Number(cmValue)))) {
+        setCMValue(cmValue.substring(0, cmValue.length - 1));
+      } else {
+        if (!isNaN(parseFloat(cmValue))) {
+          setMMValue((parseFloat(cmValue) * 10).toString());
+          setMValue((parseFloat(cmValue) / 100).toString());
+          setKMValue((parseFloat(cmValue) / 1000).toString());
+        }
+      }
+    }
+  }, [cmValue]);
+
+  useEffect(() => {
+    if (focusElement === 'm') {
+      if (isNaN((Number(mValue)))) {
+        setMValue(mValue.substring(0, mValue.length - 1));
+      } else {
+        if (!isNaN(parseFloat(mValue))) {
+          setMMValue((parseFloat(mValue) * 1000).toString());
+          setCMValue((parseFloat(mValue) * 100).toString());
+          setKMValue((parseFloat(mValue) / 1000).toString());
+        }
+      }
+    }
+  }, [mValue]);
+
+  useEffect(() => {
+    if (focusElement === 'km') {
+      if (isNaN((Number(kmValue)))) {
+        setKMValue(kmValue.substring(0, kmValue.length - 1));
+      } else {
+        if (!isNaN(parseFloat(kmValue))) {
+          setMMValue((parseFloat(kmValue) * 1000000).toString());
+          setCMValue((parseFloat(kmValue) * 100000).toString());
+          setMValue((parseFloat(kmValue) * 1000).toString());
+        }
+      }
+    }
+  }, [kmValue]);
+
+  useEffect(() => {
+    if (focusElement === 'tkg') {
+      if (isNaN((Number(tkgValue)))) {
+        setTKGValue(tkgValue.substring(0, tkgValue.length - 1));
+      } else {
+        if (!isNaN(parseFloat(tkgValue))) {
+          setGValue((parseFloat(tkgValue) * 600).toString());
+          setKValue((parseFloat(tkgValue) * (600 * 1000)).toString());
+          setKGValue((parseFloat(tkgValue) * (600 * 1000000)).toString());
+        }
+      }
+    }
+  }, [tkgValue]);
+
+  useEffect(() => {
+    if (focusElement === 'g') {
+      if (isNaN((Number(gValue)))) {
+        setGValue(gValue.substring(0, gValue.length - 1));
+      } else {
+        if (!isNaN(parseFloat(gValue))) {
+          setTKGValue((parseFloat(gValue) / 600).toString());
+          setKGValue((parseFloat(gValue) / 1000).toString());
+          setKValue((parseFloat(gValue) / 1000000).toString());
+        }
+      }
+    }
+  }, [gValue]);
+
+  useEffect(() => {
+    if (focusElement === 'kg') {
+      if (isNaN((Number(kgValue)))) {
+        setKGValue(kgValue.substring(0, kgValue.length - 1));
+      } else {
+        if (!isNaN(parseFloat(kgValue))) {
+          setTKGValue((parseFloat(kgValue) * (1000 / 600)).toString());
+          setGValue((parseFloat(kgValue) * 1000).toString());
+          setKValue((parseFloat(kgValue) / 1000).toString());
+        }
+      }
+    }
+  }, [kgValue]);
+
+  useEffect(() => {
+    if (focusElement === 'k') {
+      if (isNaN((Number(kValue)))) {
+        setKValue(kValue.substring(0, kValue.length - 1));
+      } else {
+        if (!isNaN(parseFloat(kValue))) {
+          setTKGValue((parseFloat(kValue) * (1000000 / 600)).toFixed(10).toString());
+          setGValue((parseFloat(kValue) * 1000000).toString());
+          setKGValue((parseFloat(kValue) * 1000).toString());
+        }
+      }
+    }
+  }, [kValue]);
+
+
 
   useEffect(() => {
     const keyDownHandler = (event: any) => {
@@ -218,6 +251,10 @@ const UnitConvertBody = (props: any) => {
           <form >
             <label>重量換算</label>
             <br />
+            <label>臺斤:
+              <input type="text" value={tkgValue} onChange={handleInput}
+                onClick={() => { setFoucusElement("tkg") }} />
+            </label>
             <label >克:
               <input type="text" value={gValue} onChange={handleInput}
                 onClick={() => { setFoucusElement("g") }} />
@@ -229,10 +266,6 @@ const UnitConvertBody = (props: any) => {
             <label>公噸:
               <input type="text" value={kValue} onChange={handleInput}
                 onClick={() => { setFoucusElement("k") }} />
-            </label>
-            <label>臺斤:
-              <input type="text" value={tkgValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("tkg") }} />
             </label>
             <br />
           </form>
