@@ -2,6 +2,13 @@ import styles from "@/styles/Home.module.css";
 
 const logs = [
   {
+    date: "Update List On 2023/05/19 Fri.",
+    info: [
+      "單位換算自動計算方式優化。",
+      "單位轉換小數位限制五位。",
+    ]
+  },
+  {
     date: "Update List On 2023/05/18 Thu.",
     info: [
       "單位換算清除按鈕綁定修正。",

@@ -19,7 +19,6 @@ const UnitConvertBody = (props: any) => {
 
 
   const handleInput = (e: any) => {
-    console.log(e.target.value);
     switch (focusElement) {
       case "mm":
         setMMValue(e.target.value)
@@ -75,9 +74,9 @@ const UnitConvertBody = (props: any) => {
         setMMValue(mmValue.substring(0, mmValue.length - 1));
       } else {
         if (!isNaN(parseFloat(mmValue))) {
-          setCMValue((parseFloat(mmValue) / 10).toString());
-          setMValue((parseFloat(mmValue) / 1000).toString());
-          setKMValue((parseFloat(mmValue) / 1000000).toString());
+          setCMValue(parseFloat((parseFloat(mmValue) / 10).toFixed(5)).toString());
+          setMValue(parseFloat((parseFloat(mmValue) / 1000).toFixed(5)).toString());
+          setKMValue(parseFloat((parseFloat(mmValue) / 1000000).toFixed(5)).toString());
         }
       }
     }
@@ -89,23 +88,9 @@ const UnitConvertBody = (props: any) => {
         setCMValue(cmValue.substring(0, cmValue.length - 1));
       } else {
         if (!isNaN(parseFloat(cmValue))) {
-          setMMValue((parseFloat(cmValue) * 10).toString());
-          setMValue((parseFloat(cmValue) / 100).toString());
-          setKMValue((parseFloat(cmValue) / 1000).toString());
-        }
-      }
-    }
-  }, [cmValue]);
-
-  useEffect(() => {
-    if (focusElement === 'cm') {
-      if (isNaN((Number(cmValue)))) {
-        setCMValue(cmValue.substring(0, cmValue.length - 1));
-      } else {
-        if (!isNaN(parseFloat(cmValue))) {
-          setMMValue((parseFloat(cmValue) * 10).toString());
-          setMValue((parseFloat(cmValue) / 100).toString());
-          setKMValue((parseFloat(cmValue) / 1000).toString());
+          setMMValue(parseFloat((parseFloat(cmValue) * 10).toFixed(5)).toString());
+          setMValue(parseFloat((parseFloat(cmValue) / 100).toFixed(5)).toString());
+          setKMValue(parseFloat((parseFloat(cmValue) / 1000).toFixed(5)).toString());
         }
       }
     }
@@ -117,9 +102,9 @@ const UnitConvertBody = (props: any) => {
         setMValue(mValue.substring(0, mValue.length - 1));
       } else {
         if (!isNaN(parseFloat(mValue))) {
-          setMMValue((parseFloat(mValue) * 1000).toString());
-          setCMValue((parseFloat(mValue) * 100).toString());
-          setKMValue((parseFloat(mValue) / 1000).toString());
+          setMMValue(parseFloat((parseFloat(mValue) * 1000).toFixed(5)).toString());
+          setCMValue(parseFloat((parseFloat(mValue) * 100).toFixed(5)).toString());
+          setKMValue(parseFloat((parseFloat(mValue) / 1000).toFixed(5)).toString());
         }
       }
     }
@@ -131,9 +116,9 @@ const UnitConvertBody = (props: any) => {
         setKMValue(kmValue.substring(0, kmValue.length - 1));
       } else {
         if (!isNaN(parseFloat(kmValue))) {
-          setMMValue((parseFloat(kmValue) * 1000000).toString());
-          setCMValue((parseFloat(kmValue) * 100000).toString());
-          setMValue((parseFloat(kmValue) * 1000).toString());
+          setMMValue(parseFloat((parseFloat(kmValue) * 1000000).toFixed(5)).toString());
+          setCMValue(parseFloat((parseFloat(kmValue) * 100000).toFixed(5)).toString());
+          setMValue(parseFloat((parseFloat(kmValue) * 1000).toFixed(5)).toString());
         }
       }
     }
@@ -145,9 +130,9 @@ const UnitConvertBody = (props: any) => {
         setTKGValue(tkgValue.substring(0, tkgValue.length - 1));
       } else {
         if (!isNaN(parseFloat(tkgValue))) {
-          setGValue((parseFloat(tkgValue) * 600).toString());
-          setKValue((parseFloat(tkgValue) * (600 * 1000)).toString());
-          setKGValue((parseFloat(tkgValue) * (600 * 1000000)).toString());
+          setGValue(parseFloat((parseFloat(tkgValue) * 600).toFixed(5)).toString());
+          setKValue(parseFloat((parseFloat(tkgValue) * (600 * 1000)).toFixed(5)).toString());
+          setKGValue(parseFloat((parseFloat(tkgValue) * (600 * 1000000)).toFixed(5)).toString());
         }
       }
     }
@@ -159,9 +144,9 @@ const UnitConvertBody = (props: any) => {
         setGValue(gValue.substring(0, gValue.length - 1));
       } else {
         if (!isNaN(parseFloat(gValue))) {
-          setTKGValue((parseFloat(gValue) / 600).toString());
-          setKGValue((parseFloat(gValue) / 1000).toString());
-          setKValue((parseFloat(gValue) / 1000000).toString());
+          setTKGValue(parseFloat((parseFloat(gValue) / 600).toFixed(5)).toString());
+          setKGValue(parseFloat((parseFloat(gValue) / 1000).toFixed(5)).toString());
+          setKValue(parseFloat((parseFloat(gValue) / 1000000).toFixed(5)).toString());
         }
       }
     }
@@ -173,9 +158,9 @@ const UnitConvertBody = (props: any) => {
         setKGValue(kgValue.substring(0, kgValue.length - 1));
       } else {
         if (!isNaN(parseFloat(kgValue))) {
-          setTKGValue((parseFloat(kgValue) * (1000 / 600)).toString());
-          setGValue((parseFloat(kgValue) * 1000).toString());
-          setKValue((parseFloat(kgValue) / 1000).toString());
+          setTKGValue(parseFloat((parseFloat(kgValue) * (1000 / 600)).toFixed(5)).toString());
+          setGValue(parseFloat((parseFloat(kgValue) * 1000).toFixed(5)).toString());
+          setKValue(parseFloat((parseFloat(kgValue) / 1000).toFixed(5)).toString());
         }
       }
     }
@@ -187,9 +172,9 @@ const UnitConvertBody = (props: any) => {
         setKValue(kValue.substring(0, kValue.length - 1));
       } else {
         if (!isNaN(parseFloat(kValue))) {
-          setTKGValue((parseFloat(kValue) * (1000000 / 600)).toFixed(10).toString());
-          setGValue((parseFloat(kValue) * 1000000).toString());
-          setKGValue((parseFloat(kValue) * 1000).toString());
+          setTKGValue(parseFloat((parseFloat(kValue) * (1000000 / 600)).toFixed(5)).toString());
+          setGValue(parseFloat((parseFloat(kValue) * 1000000).toFixed(5).toString()).toString());
+          setKGValue(parseFloat((parseFloat(kValue) * 1000).toFixed(5).toString()).toString());
         }
       }
     }
