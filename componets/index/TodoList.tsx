@@ -50,12 +50,12 @@ const TodoList = (props: any) => {
   };
 
   useEffect(() => {
-    const localData = JSON.parse(localStorage.getItem('listData') || '[{}]');
-    console.log("localData: " + localData);
+    const localData = JSON.parse(localStorage.getItem('listData') || '[]');
+
+    if (typeof list[0] === 'undefined') setList([]); // 避免初始化後的空陣列
 
     setList(localData);
     return () => {
-      console.log("localData in return: " + localData);
       setList(localData);
     }
   }, []);
