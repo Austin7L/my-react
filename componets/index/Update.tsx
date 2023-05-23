@@ -2,6 +2,12 @@ import styles from "@/styles/Home.module.css";
 
 const logs = [
   {
+    date: "Update List On 2023/05/23 Tue.",
+    info: [
+      "增加browser 資料儲存。",
+    ]
+  },
+  {
     date: "Update List On 2023/05/19 Fri.",
     info: [
       "單位換算自動計算方式優化。",

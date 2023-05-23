@@ -1,13 +1,16 @@
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import styles from "../../styles/Home.module.css";
-import { useState, useEffect, useRef } from "react";
 
 
 const TodoList = (props: any) => {
-  const [list, setList] = useState([
-    { text: "Study React", isDone: false },
-    { text: "Build a Web project", isDone: true },
-    { text: "Learnning non stop", isDone: false },
-  ]);
+
+  interface listData {
+    text: string,
+    isDone: boolean;
+  }
+
+  const [list, setList] = useState<listData[]>([]);
+
   const [item, setItem] = useState("");
 
   const handleSubmit = (event: any) => {
@@ -18,6 +21,7 @@ const TodoList = (props: any) => {
   const addList = (item: any) => {
     if (item !== "") {
       const newList = [...list, { text: item, isDone: false }];
+      localStorage.setItem('listData', JSON.stringify([...list, { text: item, isDone: false }]));
       setList(newList);
     };
   }
@@ -25,21 +29,40 @@ const TodoList = (props: any) => {
   const handleDelete = (index: any) => {
     const newList = [...list];
     newList.splice(index, 1);
+    const devicesArray = JSON.parse(localStorage.getItem('listData') || '');
+    devicesArray.splice(index, 1);
+    localStorage.setItem('listData', JSON.stringify(devicesArray));
     setList(newList);
   };
 
   const handleDone = (index: any) => {
     const newList = [...list];
+    const devicesArray = JSON.parse(localStorage.getItem('listData') || '');
     if (newList[index].isDone) {
       newList[index].isDone = false;
+      devicesArray[index].isDone = false;
     } else {
       newList[index].isDone = true;
+      devicesArray[index].isDone = true;
     }
+    localStorage.setItem('listData', JSON.stringify(devicesArray));
     setList(newList)
   };
 
   useEffect(() => {
+    const localData = JSON.parse(localStorage.getItem('listData') || '[{}]');
+    console.log("localData: " + localData);
+
+    setList(localData);
+    return () => {
+      console.log("localData in return: " + localData);
+      setList(localData);
+    }
+  }, []);
+
+  useEffect(() => {
     setItem("");
+
     return () => {
       setItem("");
     };
