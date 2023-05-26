@@ -140,6 +140,12 @@ input {
   padding-left: 10px;
 }
 
+textarea {
+  font-family: "custom-sans-serif";
+  font-size: 20px;
+  padding-left: 10px;
+}
+
 form input {
   border-radius: 5px;
   background-color: none;

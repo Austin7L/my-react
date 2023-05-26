@@ -2,6 +2,12 @@ import styles from "@/styles/Home.module.css";
 
 const logs = [
   {
+    date: "Update List On 2023/05/26 Fri.",
+    info: [
+      "增加待辦事項編輯功能。",
+    ]
+  },
+  {
     date: "Update List On 2023/05/23 Tue.",
     info: [
       "增加browser 資料儲存。",

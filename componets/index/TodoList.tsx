@@ -6,22 +6,33 @@ const TodoList = (props: any) => {
 
   interface listData {
     text: string,
-    isDone: boolean;
+    isDone: boolean,
+    viewMode?: { display: string },
+    editMode?: { display: string },
   }
+
+  var viewMode = {
+    display: ''
+  };
+  var editMode = {
+    display: 'none'
+  };
 
   const [list, setList] = useState<listData[]>([]);
 
   const [item, setItem] = useState("");
+
+  const [updateValue, setUpdateValue] = useState("");
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
     addList(item);
   };
 
-  const addList = (item: any) => {
+  const addList = (item: string) => {
     if (item !== "") {
-      const newList = [...list, { text: item, isDone: false }];
-      localStorage.setItem('listData', JSON.stringify([...list, { text: item, isDone: false }]));
+      const newList: listData[] = [...list, { text: item, isDone: false, viewMode: { display: '' }, editMode: { display: 'none' } }];
+      localStorage.setItem('listData', JSON.stringify(newList));
       setList(newList);
     };
   }
@@ -47,6 +58,42 @@ const TodoList = (props: any) => {
     }
     localStorage.setItem('listData', JSON.stringify(devicesArray));
     setList(newList)
+  };
+
+  const handleEdit = (index: any) => {
+    handleMode("edit", index);
+    setUpdateValue(list[index].text);
+  };
+
+  const handleUpdate = (index: any) => {
+    const newList = [...list];
+    newList[index].text = updateValue;
+    setList(newList);
+    localStorage.setItem('listData', JSON.stringify(newList));
+    handleMode("view", index);
+  };
+
+  const handleCancel = (index: any) => {
+    handleMode("view", index);
+  };
+
+  const handleMode = (value: string, index: any) => {
+    const newList: listData[] = [...list];
+    switch (value) {
+      case "view":
+        console.log("value: " + value);
+        newList[index].viewMode = { display: '' };
+        newList[index].editMode = { display: 'none' };
+        break;
+      case "edit":
+        newList[index].viewMode = { display: 'none' };
+        newList[index].editMode = { display: '' };
+        break;
+      default:
+        break;
+    }
+    setList(newList);
+    localStorage.setItem('listData', JSON.stringify(newList));
   };
 
   useEffect(() => {
@@ -97,13 +144,23 @@ const TodoList = (props: any) => {
                 {list.map((item, index) => {
                   return (
                     <li key={index} className={styles.todoListOuterLi} >
-                      <div className={item.isDone ? styles.todoListItemsWithIsDone : styles.todoListItems}>
+                      <div className={item.isDone ? styles.todoListItemsWithIsDone : styles.todoListItems} style={item.viewMode}>
                         {item.text}
                       </div>
+                      <textarea className={styles.todoListTextArea} value={updateValue}
+                        onChange={(e) => { setUpdateValue(e.target.value) }} style={item.editMode} />
                       <div className={styles.todoListImgDiv}>
+                        <img src="/icons/edit_32px.png" className={styles.todoListImg} onClick={() => { handleEdit(index) }}
+                          style={item.viewMode} />
                         <img src={item.isDone ? "/icons/check_mark_done_32px.png" : "/icons/check_mark_32px.png"}
-                          className={styles.todoListImg} onClick={() => { handleDone(index) }} />
-                        <img src="/icons/bin_32px.png" className={styles.todoListImg} onClick={() => { handleDelete(index) }} />
+                          className={styles.todoListImg} onClick={() => { handleDone(index) }} style={item.viewMode} />
+                        <img src="/icons/bin_32px.png" className={styles.todoListImg} onClick={() => { handleDelete(index) }}
+                          style={item.viewMode} />
+                        <img className={styles.todoListTempImg} style={item.editMode} />
+                        <img src="/icons/save_32px.png" className={styles.todoListImg} onClick={() => { handleUpdate(index) }}
+                          style={item.editMode} />
+                        <img src="/icons/cancel_32px.png" className={styles.todoListImg} onClick={() => { handleCancel(index) }}
+                          style={item.editMode} />
                       </div>
                     </li>
                   );
