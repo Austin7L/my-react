@@ -213,19 +213,19 @@ const UnitConvertBody = (props: any) => {
             <br />
             <label >毫米:
               <input type="text" value={mmValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("mm") }} />
+                onFocus={() => { setFoucusElement("mm") }} />
             </label>
             <label>公分:
               <input type="text" value={cmValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("cm") }} />
+                onFocus={() => { setFoucusElement("cm") }} />
             </label>
             <label>公尺:
               <input type="text" value={mValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("m") }} />
+                onFocus={() => { setFoucusElement("m") }} />
             </label>
             <label>公里:
               <input type="text" value={kmValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("km") }} />
+                onFocus={() => { setFoucusElement("km") }} />
             </label>
             <br />
           </form>
@@ -238,19 +238,19 @@ const UnitConvertBody = (props: any) => {
             <br />
             <label>臺斤:
               <input type="text" value={tkgValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("tkg") }} />
+                onFocus={() => { setFoucusElement("tkg") }} />
             </label>
             <label >克:
               <input type="text" value={gValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("g") }} />
+                onFocus={() => { setFoucusElement("g") }} />
             </label>
             <label>公斤:
               <input type="text" value={kgValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("kg") }} />
+                onFocus={() => { setFoucusElement("kg") }} />
             </label>
             <label>公噸:
               <input type="text" value={kValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("k") }} />
+                onFocus={() => { setFoucusElement("k") }} />
             </label>
             <br />
           </form>
