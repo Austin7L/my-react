@@ -74,9 +74,9 @@ const UnitConvertBody = (props: any) => {
         setMMValue(mmValue.substring(0, mmValue.length - 1));
       } else {
         if (!isNaN(parseFloat(mmValue))) {
-          setCMValue(parseFloat((parseFloat(mmValue) / 10).toFixed(5)).toString());
-          setMValue(parseFloat((parseFloat(mmValue) / 1000).toFixed(5)).toString());
-          setKMValue(parseFloat((parseFloat(mmValue) / 1000000).toFixed(5)).toString());
+          setCMValue(numberFixed((parseFloat(mmValue) / 10)));
+          setMValue(numberFixed((parseFloat(mmValue) / 1000)));
+          setKMValue(numberFixed((parseFloat(mmValue) / 1000000)));
         }
       }
     }
@@ -88,9 +88,9 @@ const UnitConvertBody = (props: any) => {
         setCMValue(cmValue.substring(0, cmValue.length - 1));
       } else {
         if (!isNaN(parseFloat(cmValue))) {
-          setMMValue(parseFloat((parseFloat(cmValue) * 10).toFixed(5)).toString());
-          setMValue(parseFloat((parseFloat(cmValue) / 100).toFixed(5)).toString());
-          setKMValue(parseFloat((parseFloat(cmValue) / 1000).toFixed(5)).toString());
+          setMMValue(numberFixed((parseFloat(cmValue) * 10)));
+          setMValue(numberFixed((parseFloat(cmValue) / 100)));
+          setKMValue(numberFixed((parseFloat(cmValue) / 1000)));
         }
       }
     }
@@ -102,9 +102,9 @@ const UnitConvertBody = (props: any) => {
         setMValue(mValue.substring(0, mValue.length - 1));
       } else {
         if (!isNaN(parseFloat(mValue))) {
-          setMMValue(parseFloat((parseFloat(mValue) * 1000).toFixed(5)).toString());
-          setCMValue(parseFloat((parseFloat(mValue) * 100).toFixed(5)).toString());
-          setKMValue(parseFloat((parseFloat(mValue) / 1000).toFixed(5)).toString());
+          setMMValue(numberFixed((parseFloat(mValue) * 1000)));
+          setCMValue(numberFixed((parseFloat(mValue) * 100)));
+          setKMValue(numberFixed((parseFloat(mValue) / 1000)));
         }
       }
     }
@@ -116,9 +116,9 @@ const UnitConvertBody = (props: any) => {
         setKMValue(kmValue.substring(0, kmValue.length - 1));
       } else {
         if (!isNaN(parseFloat(kmValue))) {
-          setMMValue(parseFloat((parseFloat(kmValue) * 1000000).toFixed(5)).toString());
-          setCMValue(parseFloat((parseFloat(kmValue) * 100000).toFixed(5)).toString());
-          setMValue(parseFloat((parseFloat(kmValue) * 1000).toFixed(5)).toString());
+          setMMValue(numberFixed((parseFloat(kmValue) * 1000000)));
+          setCMValue(numberFixed((parseFloat(kmValue) * 100000)));
+          setMValue(numberFixed((parseFloat(kmValue) * 1000)));
         }
       }
     }
@@ -130,9 +130,9 @@ const UnitConvertBody = (props: any) => {
         setTKGValue(tkgValue.substring(0, tkgValue.length - 1));
       } else {
         if (!isNaN(parseFloat(tkgValue))) {
-          setGValue(parseFloat((parseFloat(tkgValue) * 600).toFixed(5)).toString());
-          setKValue(parseFloat((parseFloat(tkgValue) * (600 * 1000)).toFixed(5)).toString());
-          setKGValue(parseFloat((parseFloat(tkgValue) * (600 * 1000000)).toFixed(5)).toString());
+          setGValue(numberFixed((parseFloat(tkgValue) * 600)));
+          setKGValue(numberFixed((parseFloat(tkgValue) * (600 / 1000))));
+          setKValue(numberFixed((parseFloat(tkgValue) * (600 / 1000000))));
         }
       }
     }
@@ -144,9 +144,9 @@ const UnitConvertBody = (props: any) => {
         setGValue(gValue.substring(0, gValue.length - 1));
       } else {
         if (!isNaN(parseFloat(gValue))) {
-          setTKGValue(parseFloat((parseFloat(gValue) / 600).toFixed(5)).toString());
-          setKGValue(parseFloat((parseFloat(gValue) / 1000).toFixed(5)).toString());
-          setKValue(parseFloat((parseFloat(gValue) / 1000000).toFixed(5)).toString());
+          setTKGValue(numberFixed((parseFloat(gValue) / 600)));
+          setKGValue(numberFixed((parseFloat(gValue) / 1000)));
+          setKValue(numberFixed((parseFloat(gValue) / 1000000)));
         }
       }
     }
@@ -158,9 +158,9 @@ const UnitConvertBody = (props: any) => {
         setKGValue(kgValue.substring(0, kgValue.length - 1));
       } else {
         if (!isNaN(parseFloat(kgValue))) {
-          setTKGValue(parseFloat((parseFloat(kgValue) * (1000 / 600)).toFixed(5)).toString());
-          setGValue(parseFloat((parseFloat(kgValue) * 1000).toFixed(5)).toString());
-          setKValue(parseFloat((parseFloat(kgValue) / 1000).toFixed(5)).toString());
+          setTKGValue(numberFixed((parseFloat(kgValue) * (1000 / 600)), 2));
+          setGValue(numberFixed((parseFloat(kgValue) * 1000)));
+          setKValue(numberFixed((parseFloat(kgValue) / 1000)));
         }
       }
     }
@@ -172,9 +172,9 @@ const UnitConvertBody = (props: any) => {
         setKValue(kValue.substring(0, kValue.length - 1));
       } else {
         if (!isNaN(parseFloat(kValue))) {
-          setTKGValue(parseFloat((parseFloat(kValue) * (1000000 / 600)).toFixed(5)).toString());
-          setGValue(parseFloat((parseFloat(kValue) * 1000000).toFixed(5).toString()).toString());
-          setKGValue(parseFloat((parseFloat(kValue) * 1000).toFixed(5).toString()).toString());
+          setTKGValue(numberFixed((parseFloat(kValue) * (1000000 / 600))));
+          setGValue(numberFixed((parseFloat(kValue) * 1000000)));
+          setKGValue(numberFixed((parseFloat(kValue) * 1000)));
         }
       }
     }
@@ -199,6 +199,10 @@ const UnitConvertBody = (props: any) => {
     event.preventDefault(); // 避免submit重新跳轉
   };
 
+  const numberFixed = (value: number, fractionDigits: number = 5) => {
+    return parseFloat(value.toFixed(fractionDigits)).toString();
+  }
+
   return (
     <>
       <div className={styles.bodyOuterDiv}>
@@ -213,19 +217,19 @@ const UnitConvertBody = (props: any) => {
             <br />
             <label >毫米:
               <input type="text" value={mmValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("mm") }} />
+                onFocus={() => { setFoucusElement("mm") }} />
             </label>
             <label>公分:
               <input type="text" value={cmValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("cm") }} />
+                onFocus={() => { setFoucusElement("cm") }} />
             </label>
             <label>公尺:
               <input type="text" value={mValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("m") }} />
+                onFocus={() => { setFoucusElement("m") }} />
             </label>
             <label>公里:
               <input type="text" value={kmValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("km") }} />
+                onFocus={() => { setFoucusElement("km") }} />
             </label>
             <br />
           </form>
@@ -238,19 +242,19 @@ const UnitConvertBody = (props: any) => {
             <br />
             <label>臺斤:
               <input type="text" value={tkgValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("tkg") }} />
+                onFocus={() => { setFoucusElement("tkg") }} />
             </label>
             <label >克:
               <input type="text" value={gValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("g") }} />
+                onFocus={() => { setFoucusElement("g") }} />
             </label>
             <label>公斤:
               <input type="text" value={kgValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("kg") }} />
+                onFocus={() => { setFoucusElement("kg") }} />
             </label>
             <label>公噸:
               <input type="text" value={kValue} onChange={handleInput}
-                onClick={() => { setFoucusElement("k") }} />
+                onFocus={() => { setFoucusElement("k") }} />
             </label>
             <br />
           </form>

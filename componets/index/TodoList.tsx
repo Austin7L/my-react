@@ -40,23 +40,14 @@ const TodoList = (props: any) => {
   const handleDelete = (index: any) => {
     const newList = [...list];
     newList.splice(index, 1);
-    const devicesArray = JSON.parse(localStorage.getItem('listData') || '');
-    devicesArray.splice(index, 1);
-    localStorage.setItem('listData', JSON.stringify(devicesArray));
+    localStorage.setItem('listData', JSON.stringify(newList));
     setList(newList);
   };
 
   const handleDone = (index: any) => {
     const newList = [...list];
-    const devicesArray = JSON.parse(localStorage.getItem('listData') || '');
-    if (newList[index].isDone) {
-      newList[index].isDone = false;
-      devicesArray[index].isDone = false;
-    } else {
-      newList[index].isDone = true;
-      devicesArray[index].isDone = true;
-    }
-    localStorage.setItem('listData', JSON.stringify(devicesArray));
+    newList[index].isDone = !newList[index].isDone;
+    localStorage.setItem('listData', JSON.stringify(newList));
     setList(newList)
   };
 
